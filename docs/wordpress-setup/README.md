@@ -185,14 +185,14 @@ wp theme activate kadence-child
 
 ## 📞 Contact & Support
 
-- **Developer**: [Your Name]
-- **Hosting**: [Hosting Provider]
+- **Developer**: Darren Tay
+- **Hosting**: WebHostingWorld
 - **Domain**: bloomsearch.sg
-- **Last Updated**: $(date +%Y-%m-%d)
+- **Last Updated**: 19/11/2025
 
 > **Note**: Keep sensitive data (API keys, passwords) in local environment files only.
 ```
 
-**Save as:** `bloomsearch/docs/wordpress-setup/README.md`
+**Save as:** `bloom-search/docs/wordpress-setup/README.md`
 
 This gives you a complete, professional setup document that's ready for GitHub and can be easily maintained as your project evolves! 🚀
