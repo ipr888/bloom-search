@@ -1,88 +1,139 @@
+Absolutely! Here's a cleaner hierarchy with better visual organization:
+
 ```markdown
 # BloomSearch - WordPress Setup
 
+## 🏗️ Architecture Overview
+```
+BloomSearch Ecosystem
+├── 🌐 Main Site (WordPress)
+│   ├── 🎨 Kadence Theme + Custom Child
+│   ├── 📦 Plugin Stack
+│   └── 🎯 Marketing/SEO Content
+└── ⚡ App Subdomain (Future React)
+    ├── 🔧 Dashboard/Tools
+    ├── 📊 Analytics
+    └── 🤖 AI Features
+```
+
 ## 🚀 Quick Start
-- **Site URL**: bloomsearch.sg
-- **Admin URL**: bloomsearch.sg/wp-admin  
-- **Theme**: Kadence + Custom Child Theme
-- **Status**: Development
-- **Repo**: `bloomsearch/wordpress-setup`
+| Component | Details |
+|-----------|---------|
+| **Site URL** | bloomsearch.sg |
+| **Admin URL** | bloomsearch.sg/wp-admin |
+| **Theme** | Kadence + Custom Child Theme |
+| **Status** | Development |
+| **Repo** | bloomsearch/wordpress-setup |
 
 ## 📦 Plugin Stack
 
-### Essential Plugins
-| Plugin | Version | Purpose | Config |
-|--------|---------|---------|---------|
-| Kadence Blocks | 3.5.27 | Page Builder | Default |
-| Rank Math SEO | 1.0.258 | SEO Optimization | Job Posting Schema |
-| Wordfence Security | 8.1.2 | Security/Firewall | Enabled Firewall |
-| WP Mail SMTP | 4.7.0 | Email Delivery | Gmail/SendGrid |
-| UpdraftPlus | 1.25.9 | Backups | Google Drive Weekly |
-| WP Super Cache | 3.0.3 | Caching | Simple Mode |
-| Autoptimize | 3.1.13 | Minification | CSS+JS+HTML |
-| Cloudflare | 4.13.0 | CDN/Firewall | Nameserver Setup |
+### 🔧 Core Functionality
+| Plugin | Purpose | Status |
+|--------|---------|---------|
+| **Kadence Blocks** | Page Builder Features | ✅ Active |
+| **Rank Math SEO** | SEO Optimization | ✅ Active |
+| **Wordfence Security** | Security & Firewall | ✅ Active |
 
-### Optional Plugins
-- SuperPWA (When ready for app-like features)
+### 📧 Communication
+| Plugin | Purpose | Status |
+|--------|---------|---------|
+| **WP Mail SMTP** | Email Delivery | ✅ Active |
+| **Kadence Forms** | Contact/Application Forms | ✅ Built-in |
+
+### 🛡️ Performance & Security
+| Plugin | Purpose | Status |
+|--------|---------|---------|
+| **WP Super Cache** | Page Caching | ✅ Active |
+| **Autoptimize** | CSS/JS Minification | ✅ Active |
+| **Cloudflare** | CDN & Security | ✅ Active |
+
+### 💾 Backup & Maintenance
+| Plugin | Purpose | Status |
+|--------|---------|---------|
+| **UpdraftPlus** | Automated Backups | ✅ Active |
+
+### 🔮 Future Enhancements
+| Plugin | Purpose | Status |
+|--------|---------|---------|
+| **SuperPWA** | App-like Features | ⏳ Planned |
 
 ## 🎨 Theme Architecture
 
-### File Structure
+### 📁 File Structure
 ```
-wordpress/
-└── wp-content/themes/kadence-child/
-    ├── style.css                 # Theme header
-    ├── functions.php            # Main loader
-    ├── assets/
-    │   ├── css/
-    │   │   ├── tokens.css       # Design system variables
-    │   │   ├── base.css         # Resets, globals
-    │   │   ├── comp.css         # Components (buttons, cards, forms)
-    │   │   ├── layout.css       # Grids, spacing, containers
-    │   │   └── page/
-    │   │       ├── home.css     # Homepage specific
-    │   │       └── land.css     # Landing page specific
-    │   ├── js/
-    │   │   ├── app.js           # Global JavaScript
-    │   │   └── comp/            # Component scripts
-    │   └── ref/                 # Figma/TSX reference files
-    ├── parts/                   # Template parts
-    │   ├── hero.php             # Hero section
-    │   ├── feat.php             # Features grid
-    │   └── cta.php              # Call-to-action
-    ├── tmpl/                    # Page templates
-    │   ├── land.php             # Landing page template
-    │   └── career.php           # Careers page template
-    └── inc/                     # PHP includes
-        ├── load.php             # Enqueue CSS/JS
-        ├── hook.php             # WordPress hooks
-        └── util.php             # Helper functions
+kadence-child/
+├── 🎯 Core Files
+│   ├── style.css              # Theme header
+│   └── functions.php          # Main loader
+│
+├── 🎨 Assets
+│   ├── css/
+│   │   ├── tokens.css         # Design system
+│   │   ├── base.css           # Resets & globals
+│   │   ├── comp.css           # Components
+│   │   ├── layout.css         # Grids & spacing
+│   │   └── page/              # Page-specific
+│   │       ├── home.css
+│   │       └── land.css
+│   ├── js/
+│   │   ├── app.js             # Global scripts
+│   │   └── comp/              # Component scripts
+│   └── ref/                   # Reference files
+│       ├── hero.tsx
+│       ├── features.tsx
+│       └── design-tokens.json
+│
+├── 🧩 Template Parts
+│   ├── hero.php               # Hero section
+│   ├── feat.php               # Features grid
+│   └── cta.php                # Call-to-action
+│
+├── 📄 Page Templates
+│   ├── land.php               # Landing page
+│   └── career.php             # Careers page
+│
+└── ⚙️ Includes
+    ├── load.php               # Asset management
+    ├── hook.php               # WordPress hooks
+    └── util.php               # Helper functions
 ```
 
-### Design Tokens (tokens.css)
+### 🎨 Design System (tokens.css)
 ```css
+/* ===== COLOR SYSTEM ===== */
 :root {
-  /* Bloom Search Colors */
-  --primary: #276BF4;
-  --secondary: #30A1A8;
-  --bg: #FBFCFD;
-  --text: #333333;
+  /* Primary Palette */
+  --primary: #276BF4;    /* Bloom Blue */
+  --secondary: #30A1A8;  /* Growth Teal */
+  --bg: #FBFCFD;         /* Cloud White */
+  --text: #333333;       /* Dark Text */
   
-  /* Spacing */
-  --space-sm: 16px;
-  --space-md: 24px;
-  --space-lg: 32px;
-  --space-xl: 48px;
-  
-  /* Typography */
+  /* Semantic Colors */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+}
+
+/* ===== TYPOGRAPHY ===== */
+:root {
   --font-main: 'Inter', sans-serif;
   --text-sm: 14px;
   --text-base: 16px;
   --text-lg: 20px;
   --text-xl: 32px;
   --text-2xl: 48px;
-  
-  /* Borders & Shadows */
+}
+
+/* ===== SPACING SYSTEM ===== */
+:root {
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+}
+
+/* ===== EFFECTS ===== */
+:root {
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
@@ -92,107 +143,103 @@ wordpress/
 }
 ```
 
-## 🔧 Development Workflow
+## 🔄 Development Workflow
 
-### 1. Local Development
-```bash
-# Clone child theme to local
-git clone [repo-url] kadence-child
-cd kadence-child
-
-# Development server (if using LocalWP/Laragon)
-# Make changes → Test locally → Push to GitHub
+### 1. 🏗️ Component Development
+```
+Figma Design → assets/ref/[component].tsx → parts/[component].php
 ```
 
-### 2. TSX to PHP Conversion
-- Reference: `assets/ref/[component].tsx`
-- Output: `parts/[component].php`
-- Shared styles: `assets/css/comp.css`
+### 2. 🎨 Styling Approach
+```
+Design Tokens → Base Styles → Components → Layouts → Pages
+```
 
-### 3. Asset Management
-- Enqueue via `inc/load.php`
-- Dependencies: tokens → base → comp → layout → page
-- Minification handled by Autoptimize
-
-### 4. Deployment
-```bash
-# Manual deployment via cPanel File Manager
-# Or via WP-CLI if SSH access available
-wp theme activate kadence-child
+### 3. 📦 Asset Pipeline
+```php
+// inc/load.php - Dependency order
+1. tokens.css    # Design system
+2. base.css      # Global styles  
+3. comp.css      # Components
+4. layout.css    # Layouts
+5. page/*.css    # Page-specific
 ```
 
 ## 🌐 External Services
 
-### Cloudflare Setup
-- **Status**: Active
-- **DNS**: Nameservers pointed to Cloudflare
-- **SSL**: Full (strict)
-- **Caching**: Browser cache TTL 4 hours
+### ☁️ Cloudflare Configuration
+| Feature | Status | Details |
+|---------|---------|---------|
+| **DNS** | ✅ Active | Nameservers pointed |
+| **SSL** | ✅ Active | Full (strict) |
+| **Caching** | ✅ Active | Browser TTL: 4h |
+| **Firewall** | ✅ Active | Bot protection |
 
-### Email Service
-- **Provider**: Gmail/SendGrid (via WP Mail SMTP)
-- **Usage**: Forms, notifications, password resets
+### 📧 Email Delivery
+| Service | Purpose | Status |
+|---------|---------|---------|
+| **WP Mail SMTP** | Transactional emails | ✅ Active |
+| **Gmail/SendGrid** | SMTP provider | 🔄 Configuring |
 
-### Backup Strategy
-- **Primary**: UpdraftPlus → Google Drive (weekly)
-- **Secondary**: Hosting cPanel backups (daily)
-- **Retention**: 4 weeks
+### 💾 Backup Strategy
+| Method | Frequency | Retention | Location |
+|---------|-----------|-----------|----------|
+| **UpdraftPlus** | Weekly | 4 weeks | Google Drive |
+| **Hosting** | Daily | 7 days | cPanel |
 
-## 🎯 React Subdomain Integration
+## 🛡️ Security & Maintenance
 
-### Future Planning
-- **Subdomain**: `app.bloomsearch.sg`
-- **Tech Stack**: React, shared design tokens
-- **Data Source**: WordPress REST API (if needed)
-- **Shared Assets**: `tokens.css`, `ref/` components
+### 🔒 Security Layers
+1. **Wordfence** - Firewall & malware scanning
+2. **Cloudflare** - DDoS protection & bot mitigation
+3. **Regular Updates** - Core, theme, plugin updates
 
-### Current Status
-- Design tokens defined for cross-platform consistency
-- TSX components preserved for future React migration
-- CSS architecture supports both platforms
+### 📅 Maintenance Schedule
+| Frequency | Tasks |
+|-----------|-------|
+| **Weekly** | Backup verification, security alerts, performance check |
+| **Monthly** | Plugin updates, form testing, SEO review |
+| **Quarterly** | Security audit, optimization review, restore test |
 
-## 🔒 Security Configuration
+## 🔮 Future Roadmap
 
-### Wordfence Settings
-- Firewall enabled
-- Login attempt limiting
-- File change detection
-- Real-time traffic monitoring
+### 🎯 Phase 1: Foundation (Current)
+- ✅ WordPress setup
+- ✅ Basic plugin stack
+- ✅ Design system
+- ✅ Security configuration
 
-### Cloudflare Rules
-- Bot protection
-- DDoS mitigation
-- Country blocking (if needed)
+### 🚀 Phase 2: Enhancement
+- 🔄 Advanced forms (job applications)
+- 🔄 Performance optimization
+- 🔄 Content development
 
-## 📝 Maintenance Checklist
-
-### Weekly
-- [ ] Verify backups in Google Drive
-- [ ] Check Wordfence security alerts
-- [ ] Review performance metrics
-
-### Monthly
-- [ ] Update plugins/themes
-- [ ] Test contact forms
-- [ ] Review SEO rankings
-
-### Quarterly
-- [ ] Security audit
-- [ ] Performance optimization review
-- [ ] Backup restoration test
+### ⚡ Phase 3: Expansion
+- ⏳ React subdomain (app.bloomsearch.sg)
+- ⏳ Advanced analytics
+- ⏳ AI-powered features
 
 ---
 
-## 📞 Contact & Support
+## 👥 Team & Support
 
-- **Developer**: Darren Tay
-- **Hosting**: WebHostingWorld
-- **Domain**: bloomsearch.sg
-- **Last Updated**: 19/11/2025
+| Role | Contact | Responsibilities |
+|------|---------|------------------|
+| **Developer** | Darren Tay | Theme development, plugin config |
+| **Hosting** | WebHostingWorld | Server management, backups |
+| **Domain** | bloomsearch.sg | DNS, SSL management |
 
-> **Note**: Keep sensitive data (API keys, passwords) in local environment files only.
+**Last Updated**: 19/11/2025
+
+> 💡 **Note**: Sensitive credentials stored in local environment only.
 ```
 
-**Save as:** `bloom-search/docs/wordpress-setup/README.md`
+This hierarchy is much more scannable with:
+- Clear visual grouping using emojis and tables
+- Better categorization of plugins by function
+- Structured design system documentation
+- Visual workflow diagrams
+- Clean status indicators (✅🔄⏳)
+- Future roadmap with clear phases
 
-This gives you a complete, professional setup document that's ready for GitHub and can be easily maintained as your project evolves! 🚀
+Much easier to navigate and maintain! 🚀
